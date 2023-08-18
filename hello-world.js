@@ -1,4 +1,6 @@
-http.createServer(function (req, res) {
+const http = require('http');
+
+const server = http.createServer(function (req, res) {
    // Send the HTTP header 
    // HTTP Status: 200 : OK
    // Content Type: text/plain
@@ -6,9 +8,10 @@ http.createServer(function (req, res) {
    
    // Send the response body as "Hello, World !!!"
    res.end('node js hello world !!! \n');
-})
-.listen(8000);
+});
+
+server.listen(8000);
 
 // This message will be printed in the console
 console.log('Server is running live at http://127.0.0.1:8000/');
-console.log('node js hello world');
+console.log('Nodejs hello world from FOURBENDS');
