@@ -18,5 +18,5 @@ echo "Build your app"
 sudo npm run build
 
 echo "Run new PM2 action"
-# sudo cp /home/ubuntu/ecosystem.json ecosystem.json
+sudo cp /var/www/html/eccosystem.json eccosystem.json
 sudo pm2 start eccosystem.json
