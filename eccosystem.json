@@ -1,7 +1,7 @@
 {
   "apps" : [
      {
-        "name"          : "App Name",
+        "name"          : "hello-world",
         "script"        : "npm",
         "args"          : "run start",
         "watch"         : false,
