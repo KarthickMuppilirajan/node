@@ -38,6 +38,6 @@ jobs:
         run: |
           cd /home/runner/work/_temp
           pwd
-          ls -ll
+          ls -ll _github_workflow
           # cat index.html
           # pm2 restart hello-world.js --name hello-world
