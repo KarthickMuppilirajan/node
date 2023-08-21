@@ -39,4 +39,5 @@ jobs:
           cd /var/www/html
           pwd
           ls -ll
-          pm2 restart hello-world.js
+          cat index.html
+          pm2 restart hello-world.js --name hello-world
