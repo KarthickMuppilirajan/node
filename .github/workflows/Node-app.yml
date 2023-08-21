@@ -22,22 +22,6 @@ jobs:
           REMOTE_HOST: ${{ secrets.NODE_HOST_DNS }}
           REMOTE_USER: ${{ secrets.NODE_USERNAME }}
           TARGET: ${{ secrets.NODE_TARGET_DIR }}
+          script: sh script.sh
 
-      - name: Set Up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'  # Use the appropriate Node.js version
-
-      # - name: Install Dependencies
-      #   run: npm install
-
-      - name: Install PM2
-        run: npm install -g pm2
-      
-      - name: Start App with PM2s
-        run: |
-          cd /home/runner/work/_temp
-          pwd
-          ls -ll _github_workflow
-          # cat index.html
-          # pm2 restart hello-world.js --name hello-world
+     
