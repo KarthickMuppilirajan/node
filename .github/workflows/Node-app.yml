@@ -36,5 +36,5 @@ jobs:
       
       - name: Start App with PM2
         run: |
-        cd /var/www/html
-        pm2 restart hello-world.js
+          cd /var/www/html
+          pm2 restart hello-world.js
