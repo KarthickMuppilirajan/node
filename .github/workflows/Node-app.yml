@@ -22,6 +22,11 @@ jobs:
           REMOTE_HOST: ${{ secrets.NODE_HOST_DNS }}
           REMOTE_USER: ${{ secrets.NODE_USERNAME }}
           TARGET: ${{ secrets.NODE_TARGET_DIR }}
-          script: sh script.sh
+          
+
+    Steps:
+      - name: Executing script file
+        run: sh script.sh
+           
 
      
