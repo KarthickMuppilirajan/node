@@ -1,0 +1,16 @@
+{
+  "apps" : [
+     {
+        "name"          : "App Name",
+        "script"        : "npm",
+        "args"          : "run start",
+        "watch"         : false,
+        "cwd"           : "/var/www/html",
+        "out_file"      : "/var/log/nginx/nodeapp.out.log",
+        "err_file"      : "/var/log/nginx/nodeapp.err.log",
+        "merge_logs"    : true,
+        "instances"     : 1,
+        "exec_mode"     : "cluster"
+     }
+  ]
+}
