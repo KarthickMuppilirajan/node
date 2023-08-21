@@ -24,7 +24,7 @@ jobs:
           TARGET: ${{ secrets.NODE_TARGET_DIR }}
           
 
-    Steps:
+    steps:
       - name: Executing script file
         run: sh script.sh
            
