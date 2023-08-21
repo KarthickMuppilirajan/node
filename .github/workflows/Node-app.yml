@@ -34,9 +34,9 @@ jobs:
       - name: Install PM2
         run: npm install -g pm2
       
-      - name: Start App with PM2
+      - name: Start App with PM2s
         run: |
-          cd /home/runner/work/_temp/3bbfa192-fd41-4433-a020-28549e591e98
+          cd /home/runner/work/_temp
           pwd
           ls -ll
           # cat index.html
