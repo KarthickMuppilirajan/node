@@ -1,6 +1,7 @@
 echo "pwd"
 sudo pwd
 sudo ls -ll
+sudo su
 
 echo "Kill all the running PM2 actions"
 sudo pm2 kill
