@@ -36,8 +36,8 @@ jobs:
       
       - name: Start App with PM2
         run: |
-          cd /var/www/html
+          cd /home/runner/work/_temp/3bbfa192-fd41-4433-a020-28549e591e98
           pwd
           ls -ll
-          cat index.html
-          pm2 restart hello-world.js --name hello-world
+          # cat index.html
+          # pm2 restart hello-world.js --name hello-world
