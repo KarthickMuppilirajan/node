@@ -7,7 +7,7 @@ const server = http.createServer(function (req, res) {
    res.writeHead(200, {'Content-Type': 'text/plain'});
    
    // Send the response body as "Hello, World !!!"
-   res.end('Hello Sri Vidhya Veeramani Karthick lusu payan  \n');
+   res.end('Hello Sri Vidhya Veeramani Karthick \n');
 });
 
 server.listen(8000);
