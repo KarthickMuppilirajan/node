@@ -22,11 +22,6 @@ jobs:
           REMOTE_HOST: ${{ secrets.NODE_HOST_DNS }}
           REMOTE_USER: ${{ secrets.NODE_USERNAME }}
           TARGET: ${{ secrets.NODE_TARGET_DIR }}
-
-      - name: Restart the ubuntu
-        run: |
-          systemctl restart ubuntu
-          
       
            
 
