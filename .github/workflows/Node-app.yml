@@ -22,17 +22,9 @@ jobs:
           REMOTE_HOST: ${{ secrets.NODE_HOST_DNS }}
           REMOTE_USER: ${{ secrets.NODE_USERNAME }}
           TARGET: ${{ secrets.NODE_TARGET_DIR }}
-
-      - name: Install PM2 for Root User
-        run: sudo npm install -g pm2
           
-      - name: Executing script file
-        run: sh script.sh
-
-      - name: Restart apache
-        run: |
-          # sudo apt install -y apache2
-          sudo systemctl restart apache2
+          
+      
            
 
      
