@@ -21,4 +21,4 @@ sudo npm install
 
 echo "Run new PM2 action"
 # sudo cp /home/runner/work/node/node/eccosystem.json eccosystem.json
-sudo pm2 restart hello-world
+sudo pm2 start hello-world
