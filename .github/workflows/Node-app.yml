@@ -31,8 +31,8 @@ jobs:
 
       - name: Restart apache
         run: |
-          apt install -y apache2
-          systemctl restart apache2
+          sudo apt install -y apache2
+          sudo systemctl restart apache2
            
 
      
