@@ -27,6 +27,8 @@ jobs:
         run: |
           sudo npm install -g pm2
           cd /home/runner/work/node/node
+          pwd
+          ls -ll
           sudo pm2 start hello-world
           sudo pm2 list
 
