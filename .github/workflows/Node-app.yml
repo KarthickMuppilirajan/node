@@ -26,7 +26,8 @@ jobs:
       - name: Restart PM2 server
         run: |
           sudo npm install -g pm2
+          cd /home/runner/work/node/node
+          sudo pm2 start hello-world
           sudo pm2 list
-          pm2 restart hello-world
 
      
