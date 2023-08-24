@@ -22,13 +22,11 @@ jobs:
             cd /var/www/html 
             ls -ll
             pwd
-            # git checkout main &&
-            # git pull origin main &&
+            git pull https://github.com/KarthickMuppilirajan/node.git
+            cat hello-world.js
             sudo npm i 
             sudo npm install -g pm2
             sudo pm2 list
-            # sudo npm run build 
-            # sudo pm2 stop hello-world.js 
             sudo pm2 restart hello-world.js
 
       # - name: Set up SSH
