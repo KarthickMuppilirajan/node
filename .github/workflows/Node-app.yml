@@ -15,8 +15,10 @@ jobs:
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "$NODE_EC2_SSH_KEY" > ~/.ssh/aws.pem
-          sudo chmod 600 ~/.ssh/aws.pem
+          echo "$NODE_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          # echo "$NODE_EC2_SSH_KEY" > ~/.ssh/aws.pem
+          # sudo chmod 600 ~/.ssh/aws.pem
 
       - name: Build & Deploy
         env:
@@ -26,7 +28,7 @@ jobs:
             TARGET: ${{ secrets.NODE_TARGET_DIR }}
       
         run: |
-           ssh -v -o StrictHostKeyChecking=no -i ~/.ssh/aws.pem ${USER_NAME}@${HOSTNAME}
+           ssh -v -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${USER_NAME}@${HOSTNAME}
               cd /var/www/html &&
               git checkout main &&
               git fetch --all &&
