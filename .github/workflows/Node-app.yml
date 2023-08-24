@@ -21,6 +21,7 @@ jobs:
           script: |
             cd /var/www/html 
             ls -ll
+            pwd
             # git checkout main &&
             # git pull origin main &&
             sudo npm i 
