@@ -24,7 +24,8 @@ jobs:
           TARGET: ${{ secrets.NODE_TARGET_DIR }}
       
       - name: Restart PM2 server
-        run: pm2 restart hello-world
-           
+        run: |
+          sudo npm install -g pm2
+          pm2 restart hello-world
 
      
