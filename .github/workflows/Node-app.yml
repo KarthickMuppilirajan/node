@@ -26,9 +26,10 @@ jobs:
             # git pull origin main &&
             sudo npm i 
             sudo npm install -g pm2
+            sudo pm2 list
             # sudo npm run build 
             # sudo pm2 stop hello-world.js 
-            sudo pm2 start hello-world.js
+            sudo pm2 restart hello-world.js
 
       # - name: Set up SSH
       #   run: |
