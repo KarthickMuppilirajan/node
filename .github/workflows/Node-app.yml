@@ -20,8 +20,8 @@ jobs:
           key: ${{ secrets.NODE_EC2_SSH_KEY}}  
           script: |
             cd /var/www/html &&
-            git checkout main &&
-            git pull origin main &&
+            # git checkout main &&
+            # git pull origin main &&
             sudo npm i &&
             sudo npm run build &&
             sudo pm2 stop ./dist/hello-world.js &&
