@@ -12,6 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.NODE_EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.NODE_HOST_DNS }}
+          REMOTE_USER: ${{ secrets.NODE_USERNAME }}
+          TARGET: ${{ secrets.NODE_TARGET_DIR }}
+
       - name: SSH into EC2 and Run Script
         uses: appleboy/ssh-action@master
         with:
