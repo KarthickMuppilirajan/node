@@ -12,34 +12,51 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "$NODE_PRIVATE_KEY" > ~/.ssh/aws.pem
-          chmod 600 ~/.ssh/aws.pem
-          ssh-keygen -y -f ~/.ssh/aws.pem > ~/.ssh/aws.pub
-      
-      - name: Add SSH known hosts
-        run: ssh-keyscan 35.173.181.30 >> ~/.ssh/known_hosts
+      - name: SSH into EC2 and Run Script
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.NODE_HOST_DNS }}  
+          username: ${{ secrets.NODE_USERNAME }}  
+          key: ${{ secrets.NODE_EC2_SSH_KEY}}  
+          script: |
+            cd /var/www/html &&
+            git checkout main &&
+            git fetch --all &&
+            git reset --hard origin/main &&
+            git pull origin main &&
+            sudo npm i &&
+            sudo npm run build &&
+            sudo pm2 stop ./dist/hello-world.js &&
+            sudo pm2 start ./dist/hello-world.js
 
-      - name: Build & Deploy  
-        env:
-            # PRIVATE_KEY: ${{ secrets.NODE_EC2_SSH_KEY }}
-            HOSTNAME: ${{secrets.NODE_HOST_DNS}}
-            USER_NAME: ${{secrets.NODE_USERNAME}}
-            TARGET: ${{ secrets.NODE_TARGET_DIR }}
+      # - name: Set up SSH
+      #   run: |
+      #     mkdir -p ~/.ssh
+      #     echo "$NODE_PRIVATE_KEY" > ~/.ssh/aws.pem
+      #     chmod 600 ~/.ssh/aws.pem
+      #     ssh-keygen -y -f ~/.ssh/aws.pem > ~/.ssh/aws.pub
       
-        run: |
-           ssh -o StrictHostKeyChecking=no -i ~/.ssh/aws.pem ubuntu@35.173.181.30
-              cd /var/www/html &&
-              git checkout main &&
-              git fetch --all &&
-              git reset --hard origin/main &&
-              git pull origin main &&
-              sudo npm i &&
-              sudo npm run build &&
-              sudo pm2 stop ./dist/hello-world.js &&
-              sudo pm2 start ./dist/hello-world.js
+      # - name: Add SSH known hosts
+      #   run: ssh-keyscan 35.173.181.30 >> ~/.ssh/known_hosts
+
+      # - name: Build & Deploy  
+      #   env:
+      #       # PRIVATE_KEY: ${{ secrets.NODE_EC2_SSH_KEY }}
+      #       HOSTNAME: ${{secrets.NODE_HOST_DNS}}
+      #       USER_NAME: ${{secrets.NODE_USERNAME}}
+      #       TARGET: ${{ secrets.NODE_TARGET_DIR }}
+      
+        # run: |
+        #    ssh -o StrictHostKeyChecking=no -i ~/.ssh/aws.pem ubuntu@35.173.181.30
+        #       cd /var/www/html &&
+        #       git checkout main &&
+        #       git fetch --all &&
+        #       git reset --hard origin/main &&
+        #       git pull origin main &&
+        #       sudo npm i &&
+        #       sudo npm run build &&
+        #       sudo pm2 stop ./dist/hello-world.js &&
+        #       sudo pm2 start ./dist/hello-world.js
               
 
 
