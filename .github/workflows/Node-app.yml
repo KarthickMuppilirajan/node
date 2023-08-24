@@ -15,7 +15,7 @@ jobs:
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "$NODE_EC2_SSH_KEY" > ~/.ssh/aws.pem
+          echo "$NODE_PRIVATE_KEY" > ~/.ssh/aws.pem
           chmod 600 ~/.ssh/aws.pem
           ssh-keygen -y -f ~/.ssh/aws.pem > ~/.ssh/aws.pub
       
