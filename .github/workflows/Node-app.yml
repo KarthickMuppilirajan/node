@@ -19,8 +19,11 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           # echo "$NODE_EC2_SSH_KEY" > ~/.ssh/aws.pem
           # sudo chmod 600 ~/.ssh/aws.pem
+      
+      - name: Add SSH known hosts
+        run: ssh-keyscan 35.173.181.30 >> ~/.ssh/known_hosts
 
-      - name: Build & Deploy
+      - name: Build & Deploy  
         env:
             # PRIVATE_KEY: ${{ secrets.NODE_EC2_SSH_KEY }}
             HOSTNAME: ${{secrets.NODE_HOST_DNS}}
@@ -28,7 +31,7 @@ jobs:
             TARGET: ${{ secrets.NODE_TARGET_DIR }}
       
         run: |
-           ssh -v -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${USER_NAME}@${HOSTNAME}
+           ssh -v -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@$35.173.181.30
               cd /var/www/html &&
               git checkout main &&
               git fetch --all &&
@@ -74,5 +77,3 @@ jobs:
 #           ls -ll
 #           sudo pm2 start hello-world.js
 #           sudo pm2 list
-
-     
