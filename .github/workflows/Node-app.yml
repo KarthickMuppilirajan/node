@@ -19,12 +19,12 @@ jobs:
           username: ${{ secrets.NODE_USERNAME }}  
           key: ${{ secrets.NODE_EC2_SSH_KEY}}  
           script: |
-            cd /var/www/html &&
+            cd /var/www/html 
             # git checkout main &&
             # git pull origin main &&
-            sudo npm i &&
-            sudo npm run build &&
-            sudo pm2 stop ./dist/hello-world.js &&
+            sudo npm i 
+            sudo npm run build 
+            sudo pm2 stop ./dist/hello-world.js 
             sudo pm2 start ./dist/hello-world.js
 
       # - name: Set up SSH
