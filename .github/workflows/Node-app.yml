@@ -26,7 +26,6 @@ jobs:
             TARGET: ${{ secrets.NODE_TARGET_DIR }}
       
         run: |
-          #  echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
            ssh -o StrictHostKeyChecking=yes -i ${PRIVATE_KEY} -v ${USER_NAME}@${HOSTNAME}
               cd /var/www/html &&
               git checkout main &&
