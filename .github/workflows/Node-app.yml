@@ -19,6 +19,7 @@ jobs:
             TARGET: ${{ secrets.NODE_TARGET_DIR }}
       
         run: |
+           ssh -o StrictHostKeyChecking=no -i ${PRIVATE_KEY} ${USER_NAME}@${HOSTNAME} '
            cd /var/www/html &&
            git checkout main &&
            git fetch --all &&
