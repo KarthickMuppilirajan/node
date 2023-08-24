@@ -29,7 +29,7 @@ jobs:
           cd /home/runner/work/node/node
           pwd
           ls -ll
-          sudo pm2 start hello-world
+          sudo pm2 start hello-world.js
           sudo pm2 list
 
      
