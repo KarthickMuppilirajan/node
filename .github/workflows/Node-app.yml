@@ -23,6 +23,8 @@ jobs:
           REMOTE_USER: ${{ secrets.NODE_USERNAME }}
           TARGET: ${{ secrets.NODE_TARGET_DIR }}
       
+      - name: Restart PM2 server
+        run: pm2 restart hello-world
            
 
      
