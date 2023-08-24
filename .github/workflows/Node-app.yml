@@ -26,7 +26,7 @@ jobs:
             TARGET: ${{ secrets.NODE_TARGET_DIR }}
       
         run: |
-           ssh -o StrictHostKeyChecking=no -i ~/.ssh/aws.pem ${USER_NAME}@${HOSTNAME}
+           ssh -v -o StrictHostKeyChecking=no -i ~/.ssh/aws.pem ${USER_NAME}@${HOSTNAME}
               cd /var/www/html &&
               git checkout main &&
               git fetch --all &&
